@@ -100,7 +100,23 @@ public:
     // Подзадача 3
     static double RectangleArea(double first, double second)
     {
-        return 0;
+        // Проверка на отрицательные значения
+        if (first < 0.0 || second < 0.0)
+        {
+            cout << "Ошибка: стороны не могут быть отрицательными." << endl;
+            return -1.0; // Возвращаем -1 для индикации ошибки ввода
+        }
+
+        // Вычисляем площадь
+        double area = first * second;
+
+        // Округляем до двух знаков после запятой
+        double result = round(area * 100.0) / 100.0;
+
+        // Выводим результат в консоль
+        cout << "Площадь прямоугольника со сторонами " << first << " и " << second << " равна " << result << endl;
+
+        return result;
     }
 
     // Подзадача 4
