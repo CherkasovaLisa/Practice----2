@@ -104,14 +104,54 @@ public:
     }
 
     // Подзадача 4
-    static double TriangleArea(double first, double second, double third)
-    {
+    static double TriangleArea(double a, double b, double c) {
+        if (a + b <= c || a + c <= b || b + c <= a) {
+            return -1; // Ошибка: треугольник с такими сторонами не существует
+        }
+        
+        double p = (a + b + c) / 2.0; // Полупериметр
+        return std::sqrt(p * (p - a) * (p - b) * (p - c)); // Площадь
+    }
+
+    int main() {
+        double a, b, c;
+        std::cout << "Введите длины трех сторон треугольника: ";
+        std::cin >> a >> b >> c;
+
+        double area = TriangleArea(a, b, c);
+
+        if (area < 0) {
+            std::cout << "Такой треугольник не существует!" << std::endl;
+        }
+        else {
+            std::cout << "Площадь треугольника: " << area << std::endl;
+        }
+
         return 0;
     }
 
     // Подзадача 5
-    static double TriangleArea(double base, double height)
-    {
+    static double TriangleArea(double base, double height) {
+        return (base * height) / 2.0;
+    }
+
+    int main() {
+        double a, h;
+
+        std::cout << "Введите основание треугольника: ";
+        cin >> a;
+
+        std::cout << "Введите высоту треугольника: ";
+        cin >> h;
+
+        if (a < 0 || h < 0) {
+            std::cout << "Основание и высота не могут быть отрицательными!" << std::endl;
+        }
+        else {
+            double area = TriangleArea(a, h);
+            std::cout << "Площадь треугольника равна: " << area << std::endl;
+        }
+
         return 0;
     }
 };
