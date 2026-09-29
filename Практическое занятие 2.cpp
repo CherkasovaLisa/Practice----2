@@ -1,6 +1,6 @@
 ﻿#include <iostream> // Используем заголовочный файл потока ввода/вывода
 #include <cmath> // Используем заголовочный файл математических функций
-
+#include <numbers>
 #include "Переменные.cpp"
 #include "Консоль.cpp"
 
@@ -94,7 +94,14 @@ public:
     // Подзадача 2
     static double CircleArea(double radius)
     {
-        return 0;
+        //flooo
+        // Считаем по формуле площади круга площадь круга
+        double CircleArea = radius * radius * std::numbers::pi;
+        // Округляем:
+        double trimmed = round(CircleArea * 100.0) / 100.0;
+        // Выводим в консоль рассчёты:
+        cout << "Площадь круга: " << trimmed << endl;
+        return CircleArea;
     }
 
     // Подзадача 3
