@@ -1,4 +1,4 @@
-﻿#include <iostream> // Используем заголовочный файл потока ввода/вывода
+g#include <iostream> // Используем заголовочный файл потока ввода/вывода
 #include <cmath> // Используем заголовочный файл математических функций
 #include <numbers>
 #include "Переменные.cpp"
@@ -150,14 +150,20 @@ public:
         return result;
     }
 
-    // Подзадача 4
-    static double TriangleArea(double a, double b, double c) {
-        if (a + b <= c || a + c <= b || b + c <= a) {
-            return -1; // Ошибка: треугольник с такими сторонами не существует
+    // Подзадача 4: Метод расчёта площади треугольника по формуле Герона
+    static double TriangleArea(double first, double second, double third)
+    {
+        // Проверка на существование треугольника (неравенство треугольника)
+        if (first <= 0,  second <= 0,  third <= 0 || first + second <= third,  first + third <= second,  second + third <= first) 
+        {
+            cout << "Ошибка: треугольник с такими сторонами не существует." << endl;
+            return -1.0;
         }
-        
-        double p = (a + b + c) / 2.0; // Полупериметр
-        return std::sqrt(p * (p - a) * (p - b) * (p - c)); // Площадь
+        double p = (first + second + third) / 2.0;
+        double value = sqrt(p * (p - first) * (p - second) * (p - third));
+        double result = round(value * 100.0) / 100.0;
+        cout << "Площадь треугольника со сторонами " << first << ", " << second << " и " << third << " равна: " << result << endl;
+        return result;
     }
 
     int main() {
@@ -167,7 +173,8 @@ public:
 
         double area = TriangleArea(a, b, c);
 
-        if (area < 0) {
+        if (area < 0) 
+        {
             std::cout << "Такой треугольник не существует!" << std::endl;
         }
         else {
@@ -177,28 +184,17 @@ public:
         return 0;
     }
 
-    // Подзадача 5
-    static double TriangleArea(double base, double height) {
-        return (base * height) / 2.0;
-    }
-
-    int main() {
-        double a, h;
-
-        std::cout << "Введите основание треугольника: ";
-        cin >> a;
-
-        std::cout << "Введите высоту треугольника: ";
-        cin >> h;
-
-        if (a < 0 || h < 0) {
-            std::cout << "Основание и высота не могут быть отрицательными!" << std::endl;
+    // Подзадача 5: Метод расчёта площади треугольника через основание и высоту
+    static double TriangleArea(double base, double height)
+    {
+        if (base < 0 || height < 0) 
+        {
+            cout << "Ошибка: основание и высота не могут быть отрицательными." << endl;
+            return -1.0;
         }
-        else {
-            double area = TriangleArea(a, h);
-            std::cout << "Площадь треугольника равна: " << area << std::endl;
-        }
-
-        return 0;
+        double value = 0.5 * base * height;
+        double result = round(value * 100.0) / 100.0;
+        cout << "Площадь треугольника с основанием " << base << " и высотой " << height << " равна: " << result << endl;
+        return result;
     }
 };
