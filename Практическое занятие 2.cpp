@@ -38,10 +38,34 @@ using namespace std; // Используем стандартную библио
 int main()
 {
     Console::SetRussianOnWindows();
-    // Подзадача 1
+    {
+        Console::SetRussianOnWindows();
 
-    // Для проверки задания: снять комментарии, заполнить методы переменными, 
-    // запустить и посмотреть консольный вывод
+        cout << "=== Калькулятор площадей ===" << endl;
+        cout << "Введите три числовых значения." << endl;
+        cout << "Они будут использоваться для дальнейших вычислений." << endl;
+        cout << endl;
+
+        double a = 0.0;
+        double b = 0.0;
+        double c = 0.0;
+
+        cout << "Введите первое значение: ";
+        cin >> a;
+
+        cout << "Введите второе значение: ";
+        cin >> b;
+
+        cout << "Введите третье значение: ";
+        cin >> c;
+
+        cout << endl;
+        cout << "Введенные значения:" << endl;
+        cout << "1) " << a << endl;
+        cout << "2) " << b << endl;
+        cout << "3) " << c << endl;
+        return 0;
+    }
     Calculator::Sum(3., 5.);
     // Calculator::CircleArea();
     // Calculator::RectangleArea();
