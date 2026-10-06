@@ -1,8 +1,8 @@
-g#include <iostream> // Используем заголовочный файл потока ввода/вывода
+#include <iostream> // Используем заголовочный файл потока ввода/вывода
 #include <cmath> // Используем заголовочный файл математических функций
 #include <numbers>
-#include "Переменные.cpp"
-#include "Консоль.cpp"
+#include "Changeble.cpp"
+#include "Consos.cpp"
 
 using namespace std; // Используем стандартную библиотеку
 
@@ -35,43 +35,6 @@ using namespace std; // Используем стандартную библио
     Помимо вычислений, каждый метод должен делать аккуратный вывод результата в консоль
     */
 
-int main()
-{
-    Console::SetRussianOnWindows();
-    {
-        Console::SetRussianOnWindows();
-
-        cout << "=== Калькулятор площадей ===" << endl;
-        cout << "Введите три числовых значения." << endl;
-        cout << "Они будут использоваться для дальнейших вычислений." << endl;
-        cout << endl;
-
-        double a = 0.0;
-        double b = 0.0;
-        double c = 0.0;
-
-        cout << "Введите первое значение: ";
-        cin >> a;
-
-        cout << "Введите второе значение: ";
-        cin >> b;
-
-        cout << "Введите третье значение: ";
-        cin >> c;
-
-        cout << endl;
-        cout << "Введенные значения:" << endl;
-        cout << "1) " << a << endl;
-        cout << "2) " << b << endl;
-        cout << "3) " << c << endl;
-        return 0;
-    }
-    Calculator::Sum(3., 5.);
-    // Calculator::CircleArea();
-    // Calculator::RectangleArea();
-    // Calculator::TriangleArea();
-    // Calculator::TriangleArea();
-}
 int sum(int a, int b)
 {
     int sum = a + b;
@@ -154,7 +117,7 @@ public:
     static double TriangleArea(double first, double second, double third)
     {
         // Проверка на существование треугольника (неравенство треугольника)
-        if (first <= 0,  second <= 0,  third <= 0 || first + second <= third,  first + third <= second,  second + third <= first) 
+        if (first <= 0, second <= 0, third <= 0 || first + second <= third, first + third <= second, second + third <= first)
         {
             cout << "Ошибка: треугольник с такими сторонами не существует." << endl;
             return -1.0;
@@ -166,28 +129,10 @@ public:
         return result;
     }
 
-    int main() {
-        double a, b, c;
-        std::cout << "Введите длины трех сторон треугольника: ";
-        std::cin >> a >> b >> c;
-
-        double area = TriangleArea(a, b, c);
-
-        if (area < 0) 
-        {
-            std::cout << "Такой треугольник не существует!" << std::endl;
-        }
-        else {
-            std::cout << "Площадь треугольника: " << area << std::endl;
-        }
-
-        return 0;
-    }
-
     // Подзадача 5: Метод расчёта площади треугольника через основание и высоту
     static double TriangleArea(double base, double height)
     {
-        if (base < 0 || height < 0) 
+        if (base < 0 || height < 0)
         {
             cout << "Ошибка: основание и высота не могут быть отрицательными." << endl;
             return -1.0;
@@ -197,4 +142,59 @@ public:
         cout << "Площадь треугольника с основанием " << base << " и высотой " << height << " равна: " << result << endl;
         return result;
     }
+
+    static int Factorial(int a)
+    {
+        double b = 1;
+        while (a > 0)
+        {
+            b *= a; a -= 1;
+        };
+        return b;
+    };
+};
+int main()
+{
+    setlocale(LC_ALL, "");
+    Console::SetRussianOnWindows();
+    while (true)
+    {
+        cout << "=== Калькулятор площадей ===" << endl;
+        cout << "Введите три числовых значения." << endl;
+        cout << "Они будут использоваться для дальнейших вычислений." << endl;
+        cout << endl;
+
+        double a = 0.0;
+        double b = 0.0;
+        double c = 0.0;
+
+        cout << "Введите первое значение: ";
+        cin >> a;
+
+        cout << "Введите второе значение: ";
+        cin >> b;
+
+        cout << "Введите третье значение: ";
+        cin >> c;
+
+        cout << endl;
+        cout << "Введенные значения:" << endl;
+        cout << "1) " << a << endl;
+        cout << "2) " << b << endl;
+        cout << "3) " << c << endl;
+
+        cout << "0 - exit; \n1 - пл. груга; \n2 - пл. прямоугольника; \n3 - пл. треугольника (по стр.); \n4 - пл. треугол. (осн и выс) \n5 - факториал" << endl;
+        cout << "Введите номерн функции:" << endl;
+        int swich = 0; cin >> swich;
+        switch (swich) {
+        case 0: return 0;
+        case 1: double radius; cout << "Введите радиус:"; cin >> radius; cout << Calculator::CircleArea(radius) << endl; break;
+        case 2:  cout << Calculator::RectangleArea(a, b) << endl; break;
+        case 3: cout << Calculator::TriangleArea(a, b, c) << endl; break;
+        case 4: cout << Calculator::TriangleArea(a, b) << endl; break;
+        case 5: cout << Calculator::Factorial(a) << endl; break;
+        default:cout << "Подумай. \nещё. \nраз." << endl; break;
+        }
+
+    };
 };

@@ -139,9 +139,9 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Консоль.cpp" />
-    <ClCompile Include="Переменные.cpp" />
-    <ClCompile Include="Практическое занятие 2.cpp" />
+    <ClCompile Include="Consos.cpp" />
+    <ClCompile Include="Changeble.cpp" />
+    <ClCompile Include="Practice 2.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
