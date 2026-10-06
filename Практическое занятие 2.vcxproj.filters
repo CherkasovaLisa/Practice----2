@@ -15,13 +15,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Практическое занятие 2.cpp">
+    <ClCompile Include="Practice 2.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Консоль.cpp">
+    <ClCompile Include="Consos.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Переменные.cpp">
+    <ClCompile Include="Changeble.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
