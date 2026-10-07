@@ -150,4 +150,59 @@ public:
         cout << "Площадь треугольника с основанием " << base << " и высотой " << height << " равна: " << result << endl;
         return result;
     }
+
+static int Factorial(int a)
+    {
+        double b = 1;
+        while (a > 0)
+        {
+            b *= a; a -= 1;
+        };
+        return b;
+    };
+};
+int main()
+{
+    setlocale(LC_ALL, "");
+    Console::SetRussianOnWindows();
+    while (true)
+    {
+        cout << "=== Калькулятор площадей ===" << endl;
+        cout << "Введите три числовых значения." << endl;
+        cout << "Они будут использоваться для дальнейших вычислений." << endl;
+        cout << endl;
+
+        double a = 0.0;
+        double b = 0.0;
+        double c = 0.0;
+
+        cout << "Введите первое значение: ";
+        cin >> a;
+
+        cout << "Введите второе значение: ";
+        cin >> b;
+
+        cout << "Введите третье значение: ";
+        cin >> c;
+
+        cout << endl;
+        cout << "Введенные значения:" << endl;
+        cout << "1) " << a << endl;
+        cout << "2) " << b << endl;
+        cout << "3) " << c << endl;
+
+        cout << "0 - exit; \n1 - пл. груга; \n2 - пл. прямоугольника; \n3 - пл. треугольника (по стр.); \n4 - пл. треугол. (осн и выс) \n5 - факториал" << endl;
+        cout << "Введите номерн функции:" << endl;
+        int swich = 0; cin >> swich;
+        switch (swich) {
+        case 0: return 0;
+        case 1: double radius; cout << "Введите радиус:"; cin >> radius; cout << Calculator::CircleArea(radius) << endl; break;
+        case 2:  cout << Calculator::RectangleArea(a, b) << endl; break;
+        case 3: cout << Calculator::TriangleArea(a, b, c) << endl; break;
+        case 4: cout << Calculator::TriangleArea(a, b) << endl; break;
+        case 5: cout << Calculator::Factorial(a) << endl; break;
+        default:cout << "Подумай. \nещё. \nраз." << endl; break;
+        }
+
+    };
 };
